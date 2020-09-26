@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1>{{ subcategory.name | title }}</h1>
+	<div class="row">
+		{% for gif in subcategory.gifs %}
+			<div class="col-sm-4">
+				<a href="{{ url('gif.index', { gifSlug: gif.Slug }) }}">
+					{#
+						asset : permet de cibler le dossier public
+						~ : concaténation
+					#}
+					<img src="{{ asset('img/' ~ gif.source) }}" alt="" class="img-fluid">
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

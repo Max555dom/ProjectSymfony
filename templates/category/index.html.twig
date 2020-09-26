@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	{# category est une clé envoyée par le contrôleur à la vue par la méthode render #}
+	<h1>{{ category.name | title }}</h1>
+
+	<div class="row">
+		{# subcategories est une clé envoyée par le contrôleur #}
+		{% for subcategory in subcategories %}
+			<div class="col-sm-4 bg-dark p-3 text-center">
+				<a href="{{ url('category.subcategory', { categorySlug: category.slug, subcategorySlug: subcategory.slug } ) }}" class="text-light h3">{{ subcategory.name | title }}</a>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1>Profil</h1>
+	{#
+		app : variable globale qui donne accès à certaines données de l'application
+			user : accéder à l'utilisateur
+			session : accéder à la session
+			request : accéder à la requête http
+	#}
+	{# {{ dump(app.user.email) }} #}
+
+	<p>
+		<a href="{{ url('profile.homepage.form') }}" class="btn btn-primary">Ajouter</a>
+	</p>
+	<table class="table table-striped">
+		<tr>
+			<th>Image</th>
+			<th>Catégorie</th>
+			<th>Sous-catégorie</th>
+			<th></th>
+		</tr>
+		{% for gif in gifs %}
+			<tr>
+				<td>
+					<img src="{{ asset('img/' ~ gif.source ) }}" class="img-fluid" alt="">
+				</td>
+				<td>{{ gif.category.parent.name | title }}</td>
+				<td>{{ gif.category.name | title }}</td>
+				<td>
+					<a href="#" class="btn btn-warning">Modifier</a>
+					<a href="#" class="btn btn-danger">Supprimer</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+{% endblock %}

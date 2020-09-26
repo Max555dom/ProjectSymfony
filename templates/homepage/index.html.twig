@@ -1,0 +1,17 @@
+{#
+	structuration des templates:
+		à la racine du dossier "templates", il y a les templates parents
+		dans les dossiers, il y a les templates enfants
+	
+	les templates enfants héritent des templates parents
+
+	extends : héritage entre un template enfant et un template parent
+	block : remplir les blocs définis dans le template parent	
+#}
+
+{% extends "base.html.twig" %}
+
+{# bloc body défini dans le parent (base.html.twig) #}
+{% block body %}
+	<h1>Accueil</h1>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="row py-3">
+		<div class="col-sm-3">
+			<img src="{{ asset('img/' ~ gif.source) }}" alt="" class="img-fluid">
+		</div>
+		<div class="col-sm-9">
+			<p>Rubrique : <a href="{{ url('category.index', { categorySlug: gif.category.parent.slug }) }}">{{ gif.category.parent.name | title }}</a></p> 
+			<p>Sous-rubrique : <a href="{{ url('category.subcategory', { categorySlug: gif.category.parent.slug, subcategorySlug: gif.category.slug }) }}">{{ gif.category.name | title }}</a></p> 
+		</div>
+	</div>
+{% endblock %}

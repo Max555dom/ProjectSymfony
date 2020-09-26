@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1>Formulaire</h1>
+	
+	{#
+		principales fonctions twig pour les formulaires
+			form_start : création de <form>
+			form_end : création de </form>
+			form_label : intitulé d'un champ de formulaire
+			form_widget : champ de formulaire
+			form_help : aide sur un champ de formulaire
+			form_errors : erreur sur un champ de formulaire
+		
+		clé attr : permet d'ajouter un attribut HTML à un champ de formulaire ou un intitulé 
+		
+		variable form : envoyée par le contrôleur
+		nom des champs : définis dans la classe de formulaire (...Type)
+	#}
+
+	{{ form_start(form, { attr : { novalidate: 'novalidate' } } ) }}
+		<p>
+			{{ form_label(form.source, 'Image : ') }}
+			{{ form_widget(form.source) }}
+			{{ form_help(form.source) }}
+		</p>
+		<p>
+			{{ form_label(form.category, 'Sous-catégorie : ') }}
+			{{ form_widget(form.category) }}
+		</p>
+		<p>
+			<input type="submit" class="btn btn-info">
+		</p>
+	{{ form_end(form) }}
+
+{% endblock %}

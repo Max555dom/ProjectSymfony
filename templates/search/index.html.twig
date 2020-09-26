@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Résultat de la Recherche</h1>
+
+    <div class="row">
+        {% for gif in gifs %}
+            {% for value in gif %}
+                <div class="col-sm-4">
+                    <img src="{{ asset('img/' ~ value.source) }}" alt="" class="img-fluid">
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}
